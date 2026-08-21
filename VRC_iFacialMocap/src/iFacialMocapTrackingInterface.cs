@@ -51,6 +51,8 @@ public class iFacialMocapTrackingInterface : ExtTrackingModule
             {
                 UpdateMouthData();
             }
+            
+            UpdateHeadData();
         }
         // updates 250 times a second because there's no way someone is using a 240Hz camera and a model that outputs more than that.. 
         Thread.Sleep(4);
@@ -193,5 +195,12 @@ public class iFacialMocapTrackingInterface : ExtTrackingModule
         #region Tongue
         UnifiedTracking.Data.Shapes[(int)UnifiedExpressions.TongueOut].Weight = server.FaceData.BlendValue("tongueOut");
         #endregion
+    }
+
+    void UpdateHeadData()
+    {
+        UnifiedTracking.Data.Head.HeadPitch = server.FaceData.head[0] / 100;
+        UnifiedTracking.Data.Head.HeadYaw = server.FaceData.head[1] / 100;
+        UnifiedTracking.Data.Head.HeadRoll = server.FaceData.head[2] / 100;
     }
 }

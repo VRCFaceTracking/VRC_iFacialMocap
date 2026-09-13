@@ -202,5 +202,8 @@ public class iFacialMocapTrackingInterface : ExtTrackingModule
         UnifiedTracking.Data.Head.HeadPitch = server.FaceData.head[0] / 100;
         UnifiedTracking.Data.Head.HeadYaw = server.FaceData.head[1] / 100;
         UnifiedTracking.Data.Head.HeadRoll = server.FaceData.head[2] / 100;
+        UnifiedTracking.Data.Head.HeadPosX = server.FaceData.head[3];
+        UnifiedTracking.Data.Head.HeadPosY = server.FaceData.head[4];
+        UnifiedTracking.Data.Head.HeadPosZ = server.FaceData.head[5];
     }
 }
